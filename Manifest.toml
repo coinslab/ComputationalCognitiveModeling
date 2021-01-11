@@ -151,6 +151,12 @@ git-tree-sha1 = "b46e1deb4592a5df7416b10dfcd6b01fb194ab9a"
 uuid = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 version = "0.22.2"
 
+[[DataFramesMeta]]
+deps = ["DataFrames", "Reexport"]
+git-tree-sha1 = "d2b8f08f3b84ba53321d5609a622ad9f61998a6a"
+uuid = "1313f7d8-7da2-5740-9ea0-a2ca25f37964"
+version = "0.6.0"
+
 [[DataStructures]]
 deps = ["Compat", "InteractiveUtils", "OrderedCollections"]
 git-tree-sha1 = "fb0aa371da91c1ff9dc7fbed6122d3e411420b9c"
