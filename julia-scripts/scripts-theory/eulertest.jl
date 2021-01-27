@@ -29,3 +29,18 @@ function eulerarraydemo(x0,deltat,nrsteps)
             title = "Euler Example", 
             legend=false)
 end
+
+function demo()
+    println("x0? :")
+    x0 = chomp(readline())
+    x0 = parse(Float64,x0)
+    println("delta? :")
+    delta = chomp(readline())
+    delta = parse(Float64,delta)
+    println("n: ?")
+    n = chomp(readline())
+    n = parse(Int,n)
+    eulerarraydemo(x0,delta,n)
+end
+
+print("Call demo() for an interactive session")
