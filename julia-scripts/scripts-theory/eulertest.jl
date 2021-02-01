@@ -44,3 +44,7 @@ function demo()
 end
 
 print("Call demo() for an interactive session")
+
+demo()
+savefig(plot,"eulertest.png")
+
