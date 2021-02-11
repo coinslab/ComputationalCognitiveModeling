@@ -8,7 +8,7 @@ function euler(x₀, δ_t,nrsteps)
     return x
 end
 
-# Each function should only have one task to do 
+# Each function should only have one task to do
 function eulerarray(x0, deltat,nrsteps)
     x = Float64[] # Initialize an empty array
     append!(x, x0)
@@ -17,16 +17,16 @@ function eulerarray(x0, deltat,nrsteps)
         temp = x[i] + deltat * dxdt
         append!(x,temp)
     end
-    return x 
+    return x
 end
 """
 Demo function for Euler method
-    - returns a plot 
+    - returns a plot
 """
 function eulerarraydemo(x0,deltat,nrsteps)
     x = eulerarray(x0,deltat,nrsteps)
-    plot(x, xlabel = "Time t", ylabel = "x", 
-            title = "Euler Example", 
+    plot(x, xlabel = "Time t", ylabel = "x",
+            title = "Euler Example",
             legend=false)
 end
 
@@ -43,8 +43,6 @@ function demo()
     eulerarraydemo(x0,delta,n)
 end
 
-print("Call demo() for an interactive session")
-
-demo()
-savefig(plot,"eulertest.png")
-
+println("Call demo() for an interactive session")
+#demo()
+#savefig(plot,"eulertest.png")

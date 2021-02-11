@@ -7,8 +7,8 @@ using DataFrames
 @sk_import metrics: classification_report
 @sk_import model_selection: cross_val_score
 @sk_import metrics: plot_confusion_matrix
-pathtodata = joinpath("covid_cleaned.csv")
-data = CSV.read(pathtodata, DataFrame)
+pathtodata = joinpath("julia-scripts","model-zoo","covid_cleaned.csv")
+data = CSV.File("covid_cleaned.csv") |> DataFrame
 
 X = convert(Array, data[!,Not(:covid_res)])
 y = convert(Array, data[!,:covid_res])
