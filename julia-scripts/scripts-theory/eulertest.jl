@@ -1,4 +1,5 @@
 using  Plots
+gr()
 function euler(x₀, δ_t,nrsteps)
     x = x₀
     for i in 1:nrsteps
@@ -31,13 +32,13 @@ function eulerarraydemo(x0,deltat,nrsteps)
 end
 
 function demo()
-    println("x0? :")
+    println("x0? (try 2.5) :")
     x0 = chomp(readline())
     x0 = parse(Float64,x0)
-    println("delta? :")
+    println("delta? (try 0.01) :")
     delta = chomp(readline())
     delta = parse(Float64,delta)
-    println("n: ?")
+    println("n: (try 100)?")
     n = chomp(readline())
     n = parse(Int,n)
     eulerarraydemo(x0,delta,n)
