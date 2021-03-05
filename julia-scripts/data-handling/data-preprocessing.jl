@@ -41,3 +41,12 @@ standardize(UnitRangeTransform, X, dims=1)
 standardize(ZScoreTransform, X, dims=1, center=false, scale=true)
 
 onehotencoded = convertlabel(LabelEnc.OneOfK{Float32}, y, obsdim=1)
+
+using Discretizers
+bin_edges = [0.1, 0.5, 0.7]
+lindisc = LinearDiscretizer(bin_edges);
+
+cat = [:yes, :no, :maybe]
+catdisc = CategoricalDiscretizer(cat)
+decode(catdisc,z)
+z = encode(lindisc,a)

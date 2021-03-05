@@ -2,6 +2,7 @@
 Clustering = "aaaa29a8-35af-508c-8bc3-b662a17a0fe5"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 DataFramesMeta = "1313f7d8-7da2-5740-9ea0-a2ca25f37964"
+Discretizers = "6e83dbb3-75ca-525b-8ae2-3751f0dd50b4"
 GR = "28b8d3ca-fb5f-59d9-8090-bfdbd6d07a71"
 JLD = "4138dd39-2aa7-5051-a626-17a0bb65d9c8"
 Languages = "8ef0a80b-9436-5d2c-a485-80b904378c43"

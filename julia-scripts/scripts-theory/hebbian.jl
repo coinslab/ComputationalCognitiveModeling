@@ -32,3 +32,5 @@ function hebbianlearn(X, W, b, γ, r, rule;δ=0)
     Wb = learning(Xnew,Wb, γ,r,rule, δ=δ)
     return Wb[:,1:size(W,2)], Wb[:,size(W,2)+1] # Unpacking W and b from Wb 
 end
+
+hebbiandemo
