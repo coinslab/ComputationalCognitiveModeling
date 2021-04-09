@@ -4,19 +4,19 @@ using CSV
 using DataFrames
 using MLLabelUtils
 using StatsBase: standardize, mean
-@sk_import model_selection: train_test_split 
-@sk_import preprocessing: OneHotEncoder
+@sk_import model_selection:train_test_split
+@sk_import preprocessing:OneHotEncoder
 iris = dataset("datasets", "iris")
 
 # If you want to use ScikitLearn, you need to convert DataFrames to Arrays 
 # ScikitLearn only accepts data as arrays. 
-X = convert(Array,iris[!, 1:4])
-y = convert(Array,iris[!,5])
+X = convert(Array, iris[!, 1:4])
+y = convert(Array, iris[!, 5])
 
 # train_test_split is a function from ScikitLearn, and splits the data 
 # according to the value passed to test_size. Here we are saying
 # that we need to allocate 33% of the raw data as test data 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y; test_size=0.33, random_state=42)
 
 data = dataset("datasets", "airquality")
 describe(data)
@@ -37,10 +37,10 @@ describe(data)
 data."Solar.R" = coalesce.(data."Solar.R", mean(skipmissing(data."Solar.R")))
 describe(data)
 
-standardize(UnitRangeTransform, X, dims=1)
-standardize(ZScoreTransform, X, dims=1, center=false, scale=true)
+standardize(UnitRangeTransform, X; dims=1)
+standardize(ZScoreTransform, X; dims=1, center=false, scale=true)
 
-onehotencoded = convertlabel(LabelEnc.OneOfK{Float32}, y, obsdim=1)
+onehotencoded = convertlabel(LabelEnc.OneOfK{Float32}, y; obsdim=1)
 
 using Discretizers
 bin_edges = [0.1, 0.5, 0.7]
@@ -48,5 +48,5 @@ lindisc = LinearDiscretizer(bin_edges);
 
 cat = [:yes, :no, :maybe]
 catdisc = CategoricalDiscretizer(cat)
-decode(catdisc,z)
-z = encode(lindisc,a)
+decode(catdisc, z)
+z = encode(lindisc, a)

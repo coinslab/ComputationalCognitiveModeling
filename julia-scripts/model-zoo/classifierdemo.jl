@@ -64,14 +64,33 @@ md"""
 @bind go Button("Analyze")
 
 # ╔═╡ 0f549420-6365-11eb-12ee-2d14ffe1de96
-let 
-	go 
-	input = parse.(Int,[intubed, pneumonia,age,pregnant,diabetic,copd,asthma,inmsupr,hypertension,other_disease,cardiovascular,obesity,renal_chronic,tobacco,contact_other_covid])
-	md"""$(get_prediction(input))"""
+let
+    go
+    input =
+        parse.(
+            Int,
+            [
+                intubed,
+                pneumonia,
+                age,
+                pregnant,
+                diabetic,
+                copd,
+                asthma,
+                inmsupr,
+                hypertension,
+                other_disease,
+                cardiovascular,
+                obesity,
+                renal_chronic,
+                tobacco,
+                contact_other_covid,
+            ],
+        )
+    md"""$(get_prediction(input))"""
 end
 
 # ╔═╡ 7ae6bcf2-6369-11eb-317c-772ddd065e0a
-
 
 # ╔═╡ Cell order:
 # ╠═e16d5b2e-6361-11eb-3766-8b163c393ce7

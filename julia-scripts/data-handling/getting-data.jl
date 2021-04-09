@@ -5,7 +5,6 @@ dataname = "iris.csv" # Here you can give any name you wish instead of iris
 download(url, dataname)
 # =================================================
 
-
 # To load CSV Files from your working directory 
 using CSV # This is a pacakge we use for loading CSV Files.
 using DataFrames
@@ -13,6 +12,6 @@ data = CSV.read("iris.csv", DataFrame) # This will load the dataset and convert 
 # =================================================
 
 # To load it from Packages like RDatasets
-using RDatasets 
+using RDatasets
 data = dataset("datasets", "iris")
 # =================================================

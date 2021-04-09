@@ -10,33 +10,17 @@ describe(cars)
 
 # Splitting by engine type 
 # AND 
-@linq cars |>
-        where(:Cyl .==4, :Gear .==5)
+@linq where(:Cyl .== 4, :Gear .== 5)(cars)
 
-@linq cars |>
-        where( .|(:Cyl .==4, :Cyl .==6))
-@linq cars |>
-        where(:Model .== "Honda Civic")
-        
+@linq where(.|(:Cyl .== 4, :Cyl .== 6))(cars)
+@linq where(:Model .== "Honda Civic")(cars)
 
-@linq cars |>
-        where(:Cyl .!=4) |>
-        select(:Model, :MPG)          
+@linq select(:Model, :MPG)(where(:Cyl .!= 4)(cars))
 
-@linq cars |>
-        where(:Cyl .==4) |>
-        select(:Model, :MPG) |>
-        orderby(:MPG) 
+@linq orderby(:MPG)(select(:Model, :MPG)(where(:Cyl .== 4)(cars)))
 
+@linq orderby(-:MPG)(select(:Model, :MPG)(where(:Cyl .== 4)(cars)))
 
-@linq cars |>
-        where(:Cyl .==4) |>
-        select(:Model, :MPG) |>
-        orderby(-:MPG)
+@linq by(:Cyl; meanMPG=mean(:MPG))(transform(; KPL=:MPG .* 0.425144)(cars))
 
-@linq cars |>
-        transform(KPL = :MPG .* 0.425144) |>
-        by(:Cyl, meanMPG = mean(:MPG))
-
-    
-unstack(cars,:Model,:Cyl,:MPG)
+unstack(cars, :Model, :Cyl, :MPG)
